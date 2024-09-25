@@ -34,8 +34,6 @@ const App = () => {
     );
 
     setStack(remainingIngredients);
-
-    // return remainingIngredients;
   }
 
   return (

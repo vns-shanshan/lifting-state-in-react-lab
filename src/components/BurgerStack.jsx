@@ -1,14 +1,21 @@
 // `src/components/BurgerStack.jsx`
+import Ingredient from "./Ingredient";
+
 const BurgerStack = ({ stack, removeFromBurger }) => {
   return (
     <ul>
-      {stack.map((ingredient, index) => (
-        <li key={index} style={{ backgroundColor: ingredient.color }}>
-          {ingredient.name}
-
-          <button onClick={() => removeFromBurger(ingredient)}>X</button>
-        </li>
-      ))}
+      {stack.length === 0 ? (
+        <li>No Ingredients</li>
+      ) : (
+        stack.map((ingredient, index) => (
+          <Ingredient
+            key={index}
+            ingredient={ingredient}
+            isAdd={false}
+            handleBtnClick={() => removeFromBurger(ingredient)}
+          />
+        ))
+      )}
     </ul>
   );
 };
